@@ -1,25 +1,37 @@
-international_shipping = True
+User_Input = float(input("Product Price:"))
 
-total = 150
-shipping_cost = 0
-tax = 2
+Price = User_Input
+Discount = 0
+Shipping = 7
+Tax = 1
 
-if international_shipping: 
-  shipping_cost += 15
-  print("International base cost applied")
+if Price >= 20:
+  Shipping = 5
+  
+elif Price >= 25:
+  Shipping = 3
 
-if total <= 50:
-  shipping_cost += 20
-elif total <= 100:
-  shipping_cost += 15
+elif Price >= 30:
+  Shipping = 1
+
+elif Price >= 35:
+  Shipping = 0
+
+elif Price >= 50:
+  Shipping = 0
+  Discount = 2
+
+elif Price >= 100:
+  Shipping = 0
+  Discount = 5
+
 else:
-  shipping_cost += 5
+  print("Invalid Price value, please insert a number")
 
-print(f"Shipping cost: {shipping_cost}")
+Total_Price = Price + Shipping + Tax - Discount
 
-print(f"tax: {tax}")
-
-total = shipping_cost + tax
-
-print(f"total: {total}")
-
+print(f"Price: {Price}")
+print(f"Discount: {Discount}")
+print(f"Shipping: {Shipping}")
+print(f"Tax: {Tax}")
+print(f"Total: {Total_Price}")
